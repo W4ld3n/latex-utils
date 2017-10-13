@@ -1,0 +1,112 @@
+\ProvidesPackage{packages/boxes}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage[english]{babel}
+\usepackage{listings}
+\usepackage{longtable}
+\usepackage{prettyref}
+\RequirePackage{mdframed}
+\usepackage[dvipsnames]{xcolor}
+
+%%%%%%%%%%%%%%Listing Styles%%%%%%%%%%%%%%%
+%listingstyle
+\lstdefinestyle{myStyle}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=R,
+  showstringspaces=false,
+  basicstyle=\tiny\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+
+
+%%%%%%%%%%%%%%%Boxes%%%%%%%%%%%%%%%%%%%%
+% Definition
+% Green and Apricot for definitions.
+\mdtheorem[
+  linecolor=OliveGreen,
+  frametitlefont=\sffamily\bfseries\color{white},
+  frametitlebackgroundcolor=OliveGreen,
+  backgroundcolor=Apricot,
+]{Def}{Defintion}[subsection]
+
+% Exercise
+% Blue Frame with white inner canvas for explaining example tasks.
+\mdtheorem[
+  linecolor=blue,
+  frametitlefont=\sffamily\bfseries\color{white},
+  frametitlebackgroundcolor=blue,  
+  backgroundcolor=YellowGreen,
+]{Exe}{Exercise}[subsection]
+
+
+
+
+% Definition
+% Green and Apricot for definitions.
+\mdtheorem[
+  linecolor=Blue,
+  frametitlefont=\sffamily\bfseries\color{white},
+  frametitlebackgroundcolor=Dandelion,
+  linewidth=2pt,
+  %backgroundcolor=SpringGreen,
+  backgroundcolor=White,
+]{Exa}{Exam Question}[subsection]
+
+%Background for biblio
+% \newcommand{BibBox}{
+% \begin{mdframed}[
+%     backgroundcolor=lightgray,
+%       linewidth=0pt
+% ]
+%     #1
+% \end{mdframed}
+% }
+
+
+%Seperating questions and answers with a line and spacing
+\newcommand{\qa}{
+\vspace{0.5 cm}
+\hrule
+\vspace{0.5 cm}
+\noindent
+}
+
+
+\newcommand{\pic}[2][1]{
+\cent{\includegraphics[width=#1\textwidth]{#2}}
+}
+
+%Shortcut for noindent
+\newcommand{\nin}{
+\noindent
+}
+
+\newcommand{\quest}[1]{
+\textbf{\textbf{#1}}
+}
+
+\newcommand{\highlight}[1]{
+\textbf{\textit{#1}}
+}
+
+
+%Shortcut for centering only partly
+\newcommand{\cent}[1]{
+\flushleft
+\centering
+#1
+\flushleft
+}
+
+%Red todo
+\newcommand{\todo}[1]{}
+\renewcommand{\todo}[1]{{\color{red} TODO: {#1}}}
+
+\endinput
